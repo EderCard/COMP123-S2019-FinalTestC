@@ -10,6 +10,7 @@ namespace COMP123_S2019_FinalTestC
     public static class Program
     {
         public static CharacterGenerationForm characterForm;
+        public static AboutForm aboutForm;
 
         /// <summary>
         /// The main entry point for the application.
@@ -21,6 +22,7 @@ namespace COMP123_S2019_FinalTestC
             Application.SetCompatibleTextRenderingDefault(false);
 
             characterForm = new CharacterGenerationForm();
+            aboutForm = new AboutForm();
 
             Application.Run(characterForm);
         }
