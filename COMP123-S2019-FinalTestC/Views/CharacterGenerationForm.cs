@@ -44,6 +44,24 @@ namespace COMP123_S2019_FinalTestC.Views
             {
                 MainTabControl.SelectedIndex++;
             }
+
+            if (MainTabControl.SelectedIndex == 3)
+            {
+                CharacterFirstNameDataLabel.Text = Program.characterPortfolio.Identity.FirstName;
+                CharacterLastNameDataLabel.Text = Program.characterPortfolio.Identity.LastName;
+
+                CharacterStrengthDataLabel.Text = Program.characterPortfolio.Strength;
+                CharacterDexterityDataLabel.Text = Program.characterPortfolio.Dexterity;
+                CharacterEnduranceDataLabel.Text = Program.characterPortfolio.Endurance;
+                CharacterIntellectDataLabel.Text = Program.characterPortfolio.Intellect;
+                CharacterEducationDataLabel.Text = Program.characterPortfolio.Education;
+                CharacterSocialStandingDataLabel.Text = Program.characterPortfolio.SocialStanding;
+
+                CharacterSkill1DataLabel.Text = Skill1Label.Text;
+                CharacterSkill2DataLabel.Text = Skill2Label.Text;
+                CharacterSkill3DataLabel.Text = Skill3Label.Text;
+                CharacterSkill4DataLabel.Text = Skill4Label.Text;
+            }
         }
         /// <summary>
         /// This is the event handler for the ExitToolStripMenuItem click event
@@ -128,6 +146,30 @@ namespace COMP123_S2019_FinalTestC.Views
             IntellectDataLabel.Text = Program.characterPortfolio.Intellect;
             EducationDataLabel.Text = Program.characterPortfolio.Education;
             SocialStandingDataLabel.Text = Program.characterPortfolio.SocialStanding;
+
+            StrengthDataLabel.Text = Program.characterPortfolio.Strength;
+            DexterityDataLabel.Text = Program.characterPortfolio.Dexterity;
+            EnduranceDataLabel.Text = Program.characterPortfolio.Endurance;
+            IntellectDataLabel.Text = Program.characterPortfolio.Intellect;
+            EducationDataLabel.Text = Program.characterPortfolio.Education;
+            SocialStandingDataLabel.Text = Program.characterPortfolio.SocialStanding;
+
+
+            CharacterFirstNameDataLabel.Text = Program.characterPortfolio.Identity.FirstName;
+            CharacterLastNameDataLabel.Text = Program.characterPortfolio.Identity.LastName;
+
+            CharacterStrengthDataLabel.Text = Program.characterPortfolio.Strength;
+            CharacterDexterityDataLabel.Text = Program.characterPortfolio.Dexterity;
+            CharacterEnduranceDataLabel.Text = Program.characterPortfolio.Endurance;
+            CharacterIntellectDataLabel.Text = Program.characterPortfolio.Intellect;
+            CharacterEducationDataLabel.Text = Program.characterPortfolio.Education;
+            CharacterSocialStandingDataLabel.Text = Program.characterPortfolio.SocialStanding;
+
+            CharacterSkill1DataLabel.Text = Skill1Label.Text;
+            CharacterSkill2DataLabel.Text = Skill2Label.Text;
+            CharacterSkill3DataLabel.Text = Skill3Label.Text;
+            CharacterSkill4DataLabel.Text = Skill4Label.Text;
+
         }
         /// <summary>
         /// This is the shared event handler for the SaveToolStripMenuItem and saveMenuStripButton click event
@@ -291,8 +333,8 @@ namespace COMP123_S2019_FinalTestC.Views
         private void CharacterGenerationForm_Load(object sender, EventArgs e)
         {
             GenerateNames();
-            FirstNameDataLabel.Text = Program.characterPortfolio.Identity.FirstName;
-            LastNameDataLabel.Text = Program.characterPortfolio.Identity.LastName;
+            //FirstNameDataLabel.Text = Program.characterPortfolio.Identity.FirstName;
+            //LastNameDataLabel.Text = Program.characterPortfolio.Identity.LastName;
 
             GenerateRandomAbilities();
 
@@ -306,6 +348,11 @@ namespace COMP123_S2019_FinalTestC.Views
         private void GenerateSkillButton_Click(object sender, EventArgs e)
         {
             GenerateRandomSkills();
+        }
+
+        private void CharacterTableLayoutPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
