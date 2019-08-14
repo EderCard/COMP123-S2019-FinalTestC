@@ -669,7 +669,7 @@
             this.Skill1Label.Name = "Skill1Label";
             this.Skill1Label.Size = new System.Drawing.Size(374, 65);
             this.Skill1Label.TabIndex = 2;
-            this.Skill1Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Skill1Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Skill2Label
             // 
@@ -683,7 +683,7 @@
             this.Skill2Label.Name = "Skill2Label";
             this.Skill2Label.Size = new System.Drawing.Size(374, 65);
             this.Skill2Label.TabIndex = 3;
-            this.Skill2Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Skill2Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Skill3Label
             // 
@@ -697,7 +697,7 @@
             this.Skill3Label.Name = "Skill3Label";
             this.Skill3Label.Size = new System.Drawing.Size(374, 65);
             this.Skill3Label.TabIndex = 4;
-            this.Skill3Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Skill3Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Skill4Label
             // 
@@ -711,7 +711,7 @@
             this.Skill4Label.Name = "Skill4Label";
             this.Skill4Label.Size = new System.Drawing.Size(374, 65);
             this.Skill4Label.TabIndex = 5;
-            this.Skill4Label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Skill4Label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SkillsLabel
             // 
