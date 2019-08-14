@@ -6,15 +6,17 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using System.Linq;
 /*
- * Student Name: Ederson Cardoso
- * Student ID: 301033332
- * Description: This is the main Form for the application
- */
+* Student Name: Ederson Cardoso
+* Student ID: 301033332
+* Description: This is the main Form for the application
+*/
 namespace COMP123_S2019_FinalTestC.Views
 {
     public partial class CharacterGenerationForm : COMP123_S2019_FinalTestC.Views.MasterForm
     {
+        Random randon = new Random();
         public CharacterGenerationForm()
         {
             InitializeComponent();
@@ -88,22 +90,15 @@ namespace COMP123_S2019_FinalTestC.Views
                         File.Open(CharacterSheetOpenFileDialog.FileName, FileMode.Open)))
                     {
                         //Read stuff from the file into the Product object
-                        //Program.product.productID = short.Parse(inputStream.ReadLine());
-                        //Program.product.condition = inputStream.ReadLine();
-                        //Program.product.cost = decimal.Parse(inputStream.ReadLine());
-                        //Program.product.platform = inputStream.ReadLine();
-                        //Program.product.OS = inputStream.ReadLine();
-                        //Program.product.manufacturer = inputStream.ReadLine();
-                        //Program.product.model = inputStream.ReadLine();
-                        //Program.product.RAM_size = inputStream.ReadLine();
-                        //Program.product.screensize = inputStream.ReadLine();
-                        //Program.product.HDD_size = inputStream.ReadLine();
-                        //Program.product.CPU_brand = inputStream.ReadLine();
-                        //Program.product.CPU_number = inputStream.ReadLine();
-                        //Program.product.GPU_Type = inputStream.ReadLine();
-                        //Program.product.CPU_type = inputStream.ReadLine();
-                        //Program.product.CPU_speed = inputStream.ReadLine();
-                        //Program.product.webcam = inputStream.ReadLine();
+                        Program.characterPortfolio.Identity.FirstName = inputStream.ReadLine();
+                        Program.characterPortfolio.Identity.LastName = inputStream.ReadLine();
+
+                        Program.characterPortfolio.Strength = inputStream.ReadLine();
+                        Program.characterPortfolio.Dexterity = inputStream.ReadLine();
+                        Program.characterPortfolio.Endurance = inputStream.ReadLine();
+                        Program.characterPortfolio.Intellect = inputStream.ReadLine();
+                        Program.characterPortfolio.Education = inputStream.ReadLine();
+                        Program.characterPortfolio.SocialStanding = inputStream.ReadLine();
 
                         //Cleanup
                         inputStream.Close();
@@ -143,22 +138,15 @@ namespace COMP123_S2019_FinalTestC.Views
                         File.Open(CharacterSheetSaveFileDialog.FileName, FileMode.Create)))
                     {
                         //Write stuff to the file
-                        //outputStream.WriteLine(Program.product.productID.ToString());
-                        //outputStream.WriteLine(Program.product.condition);
-                        //outputStream.WriteLine(Program.product.cost);
-                        //outputStream.WriteLine(Program.product.platform);
-                        //outputStream.WriteLine(Program.product.OS);
-                        //outputStream.WriteLine(Program.product.manufacturer);
-                        //outputStream.WriteLine(Program.product.model);
-                        //outputStream.WriteLine(Program.product.RAM_size);
-                        //outputStream.WriteLine(Program.product.screensize);
-                        //outputStream.WriteLine(Program.product.HDD_size);
-                        //outputStream.WriteLine(Program.product.CPU_brand);
-                        //outputStream.WriteLine(Program.product.CPU_number);
-                        //outputStream.WriteLine(Program.product.GPU_Type);
-                        //outputStream.WriteLine(Program.product.CPU_type);
-                        //outputStream.WriteLine(Program.product.CPU_speed);
-                        //outputStream.WriteLine(Program.product.webcam);
+                        outputStream.WriteLine(Program.characterPortfolio.Identity.FirstName);
+                        outputStream.WriteLine(Program.characterPortfolio.Identity.LastName);
+
+                        outputStream.WriteLine(Program.characterPortfolio.Strength);
+                        outputStream.WriteLine(Program.characterPortfolio.Dexterity);
+                        outputStream.WriteLine(Program.characterPortfolio.Endurance);
+                        outputStream.WriteLine(Program.characterPortfolio.Intellect);
+                        outputStream.WriteLine(Program.characterPortfolio.Education);
+                        outputStream.WriteLine(Program.characterPortfolio.SocialStanding);
 
                         //Cleanup
                         outputStream.Close();
@@ -173,6 +161,43 @@ namespace COMP123_S2019_FinalTestC.Views
                 MessageBox.Show("File saved successfully!", "Saving...",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+        /// <summary>
+        /// This is the event handler for the GenerateNameButton click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void GenerateNameButton_Click(object sender, EventArgs e)
+        {
+            //Get files
+            string _firstNameFile = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\Data\firstNames.txt"));
+            string _lastNameFile = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\Data\lastNames.txt"));
+
+            //Fillup Character First Name and FirstNameDataLabel
+            Program.characterPortfolio.Identity.FirstName = GetRandomItemFromFileList(_firstNameFile);
+            FirstNameDataLabel.Text = Program.characterPortfolio.Identity.FirstName;
+
+            //Fillup Character Last Name and LastNameDataLabel
+            Program.characterPortfolio.Identity.LastName = GetRandomItemFromFileList(_lastNameFile);
+            LastNameDataLabel.Text = Program.characterPortfolio.Identity.LastName;
+        }
+        /// <summary>
+        /// This method returns a random item (line) from a file list
+        /// </summary>
+        /// <param name="_fileName"></param>
+        /// <returns></returns>
+        private string GetRandomItemFromFileList(string _fileName)
+        {
+            //Populate a list with file content
+            List<string> _listFromFile = File.ReadAllLines(_fileName).ToList();
+
+            //Get number of list items
+            int _listLength = _listFromFile.Count;
+
+            //Populate _result with a random item from list
+            string _result = _listFromFile[randon.Next(_listLength)];
+
+            return _result; 
         }
     }
 }
