@@ -34,12 +34,12 @@ namespace COMP123_S2019_FinalTestC.Objects
             // Identity
             this.Identity = new Identity();
             // Characteristicis
-            this.Strength = string.Empty;
-            this.Dexterity = string.Empty;
-            this.Endurance = string.Empty;
-            this.Intellect = string.Empty;
-            this.Education = string.Empty;
-            this.SocialStanding = string.Empty;
+            this.Strength = Strength;
+            this.Dexterity = Dexterity;
+            this.Endurance = Endurance;
+            this.Intellect = Intellect;
+            this.Education = Education;
+            this.SocialStanding = SocialStanding;
         }
     }
 }

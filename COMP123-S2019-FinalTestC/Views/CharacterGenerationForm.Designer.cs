@@ -41,7 +41,7 @@
             this.AbilityTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.SocialStandingDataLabel = new System.Windows.Forms.Label();
             this.EducationDataLabel = new System.Windows.Forms.Label();
-            this.IntelectDataLabel = new System.Windows.Forms.Label();
+            this.IntellectDataLabel = new System.Windows.Forms.Label();
             this.EnduranceDataLabel = new System.Windows.Forms.Label();
             this.DexterityDataLabel = new System.Windows.Forms.Label();
             this.StrengthDataLabel = new System.Windows.Forms.Label();
@@ -49,7 +49,7 @@
             this.StrengthLabel = new System.Windows.Forms.Label();
             this.GenerateAbilitiesButton = new System.Windows.Forms.Button();
             this.EnduranceLabel = new System.Windows.Forms.Label();
-            this.IntelectLabel = new System.Windows.Forms.Label();
+            this.IntellectLabel = new System.Windows.Forms.Label();
             this.EducationLabel = new System.Windows.Forms.Label();
             this.SocialStandingLabel = new System.Windows.Forms.Label();
             this.SkillsPage = new System.Windows.Forms.TabPage();
@@ -216,7 +216,7 @@
             this.AbilityTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.AbilityTableLayoutPanel.Controls.Add(this.SocialStandingDataLabel, 1, 5);
             this.AbilityTableLayoutPanel.Controls.Add(this.EducationDataLabel, 1, 4);
-            this.AbilityTableLayoutPanel.Controls.Add(this.IntelectDataLabel, 1, 3);
+            this.AbilityTableLayoutPanel.Controls.Add(this.IntellectDataLabel, 1, 3);
             this.AbilityTableLayoutPanel.Controls.Add(this.EnduranceDataLabel, 1, 2);
             this.AbilityTableLayoutPanel.Controls.Add(this.DexterityDataLabel, 1, 1);
             this.AbilityTableLayoutPanel.Controls.Add(this.StrengthDataLabel, 1, 0);
@@ -224,7 +224,7 @@
             this.AbilityTableLayoutPanel.Controls.Add(this.StrengthLabel, 0, 0);
             this.AbilityTableLayoutPanel.Controls.Add(this.GenerateAbilitiesButton, 2, 7);
             this.AbilityTableLayoutPanel.Controls.Add(this.EnduranceLabel, 0, 2);
-            this.AbilityTableLayoutPanel.Controls.Add(this.IntelectLabel, 0, 3);
+            this.AbilityTableLayoutPanel.Controls.Add(this.IntellectLabel, 0, 3);
             this.AbilityTableLayoutPanel.Controls.Add(this.EducationLabel, 0, 4);
             this.AbilityTableLayoutPanel.Controls.Add(this.SocialStandingLabel, 0, 5);
             this.AbilityTableLayoutPanel.Location = new System.Drawing.Point(9, 7);
@@ -267,18 +267,18 @@
             this.EducationDataLabel.TabIndex = 11;
             this.EducationDataLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // IntelectDataLabel
+            // IntellectDataLabel
             // 
-            this.IntelectDataLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.IntellectDataLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.IntelectDataLabel.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.IntelectDataLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.IntelectDataLabel.Location = new System.Drawing.Point(269, 147);
-            this.IntelectDataLabel.Name = "IntelectDataLabel";
-            this.IntelectDataLabel.Size = new System.Drawing.Size(108, 49);
-            this.IntelectDataLabel.TabIndex = 10;
-            this.IntelectDataLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.IntellectDataLabel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.IntellectDataLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.IntellectDataLabel.Location = new System.Drawing.Point(269, 147);
+            this.IntellectDataLabel.Name = "IntellectDataLabel";
+            this.IntellectDataLabel.Size = new System.Drawing.Size(108, 49);
+            this.IntellectDataLabel.TabIndex = 10;
+            this.IntellectDataLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // EnduranceDataLabel
             // 
@@ -355,6 +355,7 @@
             this.GenerateAbilitiesButton.TabIndex = 2;
             this.GenerateAbilitiesButton.Text = "Generate Abilities";
             this.GenerateAbilitiesButton.UseVisualStyleBackColor = true;
+            this.GenerateAbilitiesButton.Click += new System.EventHandler(this.GenerateAbilitiesButton_Click);
             // 
             // EnduranceLabel
             // 
@@ -368,17 +369,17 @@
             this.EnduranceLabel.Text = "Endurance";
             this.EnduranceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // IntelectLabel
+            // IntellectLabel
             // 
-            this.IntelectLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.IntellectLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.IntelectLabel.Location = new System.Drawing.Point(3, 147);
-            this.IntelectLabel.Name = "IntelectLabel";
-            this.IntelectLabel.Size = new System.Drawing.Size(260, 49);
-            this.IntelectLabel.TabIndex = 3;
-            this.IntelectLabel.Text = "Intelect";
-            this.IntelectLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.IntellectLabel.Location = new System.Drawing.Point(3, 147);
+            this.IntellectLabel.Name = "IntellectLabel";
+            this.IntellectLabel.Size = new System.Drawing.Size(260, 49);
+            this.IntellectLabel.TabIndex = 3;
+            this.IntellectLabel.Text = "Intellect";
+            this.IntellectLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // EducationLabel
             // 
@@ -507,14 +508,14 @@
             this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.openToolStripMenuItem.Text = "&Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(177, 6);
             // 
             // saveToolStripMenuItem
             // 
@@ -522,19 +523,19 @@
             this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.saveToolStripMenuItem.Text = "&Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolStripMenuItem_Click);
             // 
@@ -592,6 +593,7 @@
             this.Controls.Add(this.MainTabControl);
             this.Name = "CharacterGenerationForm";
             this.Text = "Character Generator";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CharacterGenerationForm_FormClosing);
             this.MainTabControl.ResumeLayout(false);
             this.IdentityPage.ResumeLayout(false);
             this.IdentityTableLayoutPanel.ResumeLayout(false);
@@ -625,7 +627,7 @@
         private System.Windows.Forms.TableLayoutPanel AbilityTableLayoutPanel;
         private System.Windows.Forms.Label SocialStandingDataLabel;
         private System.Windows.Forms.Label EducationDataLabel;
-        private System.Windows.Forms.Label IntelectDataLabel;
+        private System.Windows.Forms.Label IntellectDataLabel;
         private System.Windows.Forms.Label EnduranceDataLabel;
         private System.Windows.Forms.Label DexterityDataLabel;
         private System.Windows.Forms.Label StrengthDataLabel;
@@ -633,7 +635,7 @@
         private System.Windows.Forms.Label StrengthLabel;
         private System.Windows.Forms.Button GenerateAbilitiesButton;
         private System.Windows.Forms.Label EnduranceLabel;
-        private System.Windows.Forms.Label IntelectLabel;
+        private System.Windows.Forms.Label IntellectLabel;
         private System.Windows.Forms.Label EducationLabel;
         private System.Windows.Forms.Label SocialStandingLabel;
         private System.Windows.Forms.ToolStrip MainToolStrip;
