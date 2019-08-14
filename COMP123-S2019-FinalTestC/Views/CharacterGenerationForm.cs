@@ -173,11 +173,9 @@ namespace COMP123_S2019_FinalTestC.Views
             }
         }
         /// <summary>
-        /// This is the event handler for the GenerateNameButton click event
+        /// This method generate random characters names based on names list from files
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void GenerateNameButton_Click(object sender, EventArgs e)
+        private void GenerateNames()
         {
             //Get files
             string _firstNameFile = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\Data\firstNames.txt"));
@@ -185,10 +183,19 @@ namespace COMP123_S2019_FinalTestC.Views
 
             //Fillup Character First Name and FirstNameDataLabel
             Program.characterPortfolio.Identity.FirstName = GetRandomItemFromFileList(_firstNameFile);
-            FirstNameDataLabel.Text = Program.characterPortfolio.Identity.FirstName;
-
+            
             //Fillup Character Last Name and LastNameDataLabel
             Program.characterPortfolio.Identity.LastName = GetRandomItemFromFileList(_lastNameFile);
+        }
+        /// <summary>
+        /// This is the event handler for the GenerateNameButton click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void GenerateNameButton_Click(object sender, EventArgs e)
+        {
+            GenerateNames();
+            FirstNameDataLabel.Text = Program.characterPortfolio.Identity.FirstName;
             LastNameDataLabel.Text = Program.characterPortfolio.Identity.LastName;
         }
         /// <summary>
@@ -216,68 +223,27 @@ namespace COMP123_S2019_FinalTestC.Views
         /// <param name="e"></param>
         private void GenerateAbilitiesButton_Click(object sender, EventArgs e)
         {
-            //Start all abilities with zero
-            Program.characterPortfolio.Strength = "0";
-            Program.characterPortfolio.Dexterity = "0";
-            Program.characterPortfolio.Endurance = "0";
-            Program.characterPortfolio.Intellect = "0";
-            Program.characterPortfolio.Education = "0";
-            Program.characterPortfolio.SocialStanding = "0";
+            GenerateAbilities();
 
+            //Poputales abilities labels
             StrengthDataLabel.Text = Program.characterPortfolio.Strength;
             DexterityDataLabel.Text = Program.characterPortfolio.Dexterity;
             EnduranceDataLabel.Text = Program.characterPortfolio.Endurance;
             IntellectDataLabel.Text = Program.characterPortfolio.Intellect;
             EducationDataLabel.Text = Program.characterPortfolio.Education;
             SocialStandingDataLabel.Text = Program.characterPortfolio.SocialStanding;
-
-            //Define max points to abilities
-            int _maxAbilitesPoints = 14;
-
-            int _totalPoints = 0;
-
-            //Distribute abilities
-            while (_totalPoints <= _maxAbilitesPoints)
-            {
-                int _ability = randon.Next(1, 7);
-
-                if (_ability == 1)
-                {
-                    Program.characterPortfolio.Strength = (Int32.Parse(Program.characterPortfolio.Strength) + 1).ToString(); 
-                    StrengthDataLabel.Text = Program.characterPortfolio.Strength;
-                    _totalPoints += Int32.Parse(Program.characterPortfolio.Strength);
-                }
-                else if (_ability == 2)
-                {
-                    Program.characterPortfolio.Dexterity = (Int32.Parse(Program.characterPortfolio.Dexterity) + 1).ToString();
-                    DexterityDataLabel.Text = Program.characterPortfolio.Dexterity;
-                    _totalPoints += Int32.Parse(Program.characterPortfolio.Dexterity);
-                }
-                else if (_ability == 3)
-                {
-                    Program.characterPortfolio.Endurance = (Int32.Parse(Program.characterPortfolio.Endurance) + 1).ToString();
-                    EnduranceDataLabel.Text = Program.characterPortfolio.Endurance;
-                    _totalPoints += Int32.Parse(Program.characterPortfolio.Endurance);
-                }
-                else if (_ability == 4)
-                {
-                    Program.characterPortfolio.Intellect = (Int32.Parse(Program.characterPortfolio.Intellect) + 1).ToString();
-                    IntellectDataLabel.Text = Program.characterPortfolio.Intellect;
-                    _totalPoints += Int32.Parse(Program.characterPortfolio.Intellect);
-                }
-                else if (_ability == 5)
-                {
-                    Program.characterPortfolio.Education = (Int32.Parse(Program.characterPortfolio.Education) + 1).ToString();
-                    EducationDataLabel.Text = Program.characterPortfolio.Education;
-                    _totalPoints += Int32.Parse(Program.characterPortfolio.Education);
-                }
-                else if (_ability == 6)
-                {
-                    Program.characterPortfolio.SocialStanding = (Int32.Parse(Program.characterPortfolio.SocialStanding) + 1).ToString();
-                    SocialStandingDataLabel.Text = Program.characterPortfolio.SocialStanding;
-                    _totalPoints += Int32.Parse(Program.characterPortfolio.SocialStanding);
-                }
-            }
+        }
+        /// <summary>
+        /// This method generate abilities based on random numbers from 1 to 15
+        /// </summary>
+        private void GenerateAbilities()
+        {
+            Program.characterPortfolio.Strength = randon.Next(1, 16).ToString();
+            Program.characterPortfolio.Dexterity = randon.Next(1, 16).ToString();
+            Program.characterPortfolio.Endurance = randon.Next(1, 16).ToString();
+            Program.characterPortfolio.Intellect = randon.Next(1, 16).ToString();
+            Program.characterPortfolio.Education = randon.Next(1, 16).ToString();
+            Program.characterPortfolio.SocialStanding = randon.Next(1, 16).ToString();
         }
         /// <summary>
         /// This is the event handler for the CharacterGenerationForm closing event
