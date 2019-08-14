@@ -100,6 +100,11 @@ namespace COMP123_S2019_FinalTestC.Views
                         Program.characterPortfolio.Education = inputStream.ReadLine();
                         Program.characterPortfolio.SocialStanding = inputStream.ReadLine();
 
+                        Skill1Label.Text = inputStream.ReadLine();
+                        Skill2Label.Text = inputStream.ReadLine();
+                        Skill3Label.Text = inputStream.ReadLine();
+                        Skill4Label.Text = inputStream.ReadLine();
+
                         //Cleanup
                         inputStream.Close();
                         inputStream.Dispose();
@@ -158,6 +163,11 @@ namespace COMP123_S2019_FinalTestC.Views
                         outputStream.WriteLine(Program.characterPortfolio.Education);
                         outputStream.WriteLine(Program.characterPortfolio.SocialStanding);
 
+                        outputStream.WriteLine(Skill1Label.Text);
+                        outputStream.WriteLine(Skill2Label.Text);
+                        outputStream.WriteLine(Skill3Label.Text);
+                        outputStream.WriteLine(Skill4Label.Text);
+
                         //Cleanup
                         outputStream.Close();
                         outputStream.Dispose();
@@ -183,9 +193,11 @@ namespace COMP123_S2019_FinalTestC.Views
 
             //Fillup Character First Name and FirstNameDataLabel
             Program.characterPortfolio.Identity.FirstName = GetRandomItemFromFileList(_firstNameFile);
-            
+            FirstNameDataLabel.Text = Program.characterPortfolio.Identity.FirstName;
+
             //Fillup Character Last Name and LastNameDataLabel
             Program.characterPortfolio.Identity.LastName = GetRandomItemFromFileList(_lastNameFile);
+            LastNameDataLabel.Text = Program.characterPortfolio.Identity.LastName;
         }
         /// <summary>
         /// This is the event handler for the GenerateNameButton click event
@@ -195,8 +207,6 @@ namespace COMP123_S2019_FinalTestC.Views
         private void GenerateNameButton_Click(object sender, EventArgs e)
         {
             GenerateNames();
-            FirstNameDataLabel.Text = Program.characterPortfolio.Identity.FirstName;
-            LastNameDataLabel.Text = Program.characterPortfolio.Identity.LastName;
         }
         /// <summary>
         /// This method returns a random item (line) from a file list
@@ -223,20 +233,12 @@ namespace COMP123_S2019_FinalTestC.Views
         /// <param name="e"></param>
         private void GenerateAbilitiesButton_Click(object sender, EventArgs e)
         {
-            GenerateAbilities();
-
-            //Poputales abilities labels
-            StrengthDataLabel.Text = Program.characterPortfolio.Strength;
-            DexterityDataLabel.Text = Program.characterPortfolio.Dexterity;
-            EnduranceDataLabel.Text = Program.characterPortfolio.Endurance;
-            IntellectDataLabel.Text = Program.characterPortfolio.Intellect;
-            EducationDataLabel.Text = Program.characterPortfolio.Education;
-            SocialStandingDataLabel.Text = Program.characterPortfolio.SocialStanding;
+            GenerateRandomAbilities();
         }
         /// <summary>
         /// This method generate abilities based on random numbers from 1 to 15
         /// </summary>
-        private void GenerateAbilities()
+        private void GenerateRandomAbilities()
         {
             Program.characterPortfolio.Strength = randon.Next(1, 16).ToString();
             Program.characterPortfolio.Dexterity = randon.Next(1, 16).ToString();
@@ -244,6 +246,13 @@ namespace COMP123_S2019_FinalTestC.Views
             Program.characterPortfolio.Intellect = randon.Next(1, 16).ToString();
             Program.characterPortfolio.Education = randon.Next(1, 16).ToString();
             Program.characterPortfolio.SocialStanding = randon.Next(1, 16).ToString();
+
+            StrengthDataLabel.Text = Program.characterPortfolio.Strength;
+            DexterityDataLabel.Text = Program.characterPortfolio.Dexterity;
+            EnduranceDataLabel.Text = Program.characterPortfolio.Endurance;
+            IntellectDataLabel.Text = Program.characterPortfolio.Intellect;
+            EducationDataLabel.Text = Program.characterPortfolio.Education;
+            SocialStandingDataLabel.Text = Program.characterPortfolio.SocialStanding;
         }
         /// <summary>
         /// This is the event handler for the CharacterGenerationForm closing event
@@ -253,6 +262,50 @@ namespace COMP123_S2019_FinalTestC.Views
         private void CharacterGenerationForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+        private void GenerateRandomSkills()
+        {
+            Skill1Label.Text = LoadSkills();
+            Skill2Label.Text = LoadSkills();
+            Skill3Label.Text = LoadSkills();
+            Skill4Label.Text = LoadSkills();
+        }
+        /// <summary>
+        /// This method generate skill based on a random list from file
+        /// </summary>
+        private string LoadSkills()
+        {
+            //Get file
+            string _skillFile = Path.GetFullPath(Path.Combine(Directory.GetCurrentDirectory(), @"..\..\Data\skills.txt"));
+
+            //Select a random item from file list
+            string _skill = GetRandomItemFromFileList(_skillFile);
+
+            return _skill;
+        }
+        /// <summary>
+        /// This is the event handler for the CharacterGenerationForm load event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CharacterGenerationForm_Load(object sender, EventArgs e)
+        {
+            GenerateNames();
+            FirstNameDataLabel.Text = Program.characterPortfolio.Identity.FirstName;
+            LastNameDataLabel.Text = Program.characterPortfolio.Identity.LastName;
+
+            GenerateRandomAbilities();
+
+            GenerateRandomSkills();
+        }
+        /// <summary>
+        /// This is the event handler for the GenerateSkillButton click event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void GenerateSkillButton_Click(object sender, EventArgs e)
+        {
+            GenerateRandomSkills();
         }
     }
 }
